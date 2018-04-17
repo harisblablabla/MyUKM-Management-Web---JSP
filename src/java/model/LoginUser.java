@@ -19,14 +19,14 @@ import object.ILoginUser;
  *
  * @author Ryandika
  */
-public class LoginUser extends UnicastRemoteObject implements ILoginUser{
+public class LoginUser {
     
     private int ID;
     private String StudentName, Gender, Address, PhoneNumber, Faculty, Major, Batch, Uname, Pword, UKMName;
     private koneksi obj_koneksi = new koneksi();
     
    
-    public LoginUser()throws Exception
+    public LoginUser()
     {
         super();
     }

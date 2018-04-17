@@ -18,12 +18,12 @@ import object.IUKM;
  *
  * @author Haris
  */
-public class UKM extends UnicastRemoteObject implements IUKM {
+public class UKM {
     private int UKMID,CoachID;
     private String UKMName,Description;
     private koneksi obj_koneksi = new koneksi();
     
-    public UKM()throws Exception
+    public UKM()
     {
         super();
     }

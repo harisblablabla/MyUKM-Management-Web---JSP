@@ -18,12 +18,12 @@ import object.ICoach2;
  *
  * @author Haris
  */
-public class Coach extends UnicastRemoteObject implements ICoach2 {
+public class Coach {
     private int CoachID;
     private String CoachName,CoachGender,CoachAddress,CoachPhoneNumber;
     private koneksi obj_koneksi = new koneksi();
     
-    public Coach()throws Exception
+    public Coach()
     {
         super();
     }

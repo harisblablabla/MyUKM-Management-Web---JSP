@@ -18,12 +18,12 @@ import object.ISchedule;
  *
  * @author Haris
  */
-public class Schedule extends UnicastRemoteObject implements ISchedule {
+public class Schedule {
     private String ScheduleID,Day,StartTime,EndTime,UKMName,Description,CoachName,PlaceName;
     int UKMPlaceID;
     private koneksi obj_koneksi = new koneksi();
     
-    public Schedule()throws Exception
+    public Schedule()
     {
         super();
     }

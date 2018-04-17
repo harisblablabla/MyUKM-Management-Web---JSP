@@ -15,12 +15,12 @@ import object.ILoginAdmin;
  *
  * @author Ryandika
  */
-public class LoginAdmin extends UnicastRemoteObject implements ILoginAdmin {
+public class LoginAdmin {
     private String Username, Password;
     private koneksi obj_koneksi = new koneksi();
     
    
-    public LoginAdmin()throws Exception
+    public LoginAdmin()
     {
         super();
     }

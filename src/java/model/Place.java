@@ -18,12 +18,12 @@ import object.IPlace;
  *
  * @author Haris
  */
-public class Place extends UnicastRemoteObject implements IPlace {
+public class Place {
     private int UKMPlaceID;
     private String PlaceName;
     private koneksi obj_koneksi = new koneksi();
     
-    public Place()throws Exception
+    public Place()
     {
         super();
     }

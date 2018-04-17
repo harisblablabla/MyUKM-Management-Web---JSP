@@ -18,11 +18,11 @@ import object.IStudentUKM;
  *
  * @author Haris
  */
-public class StudentUKM extends UnicastRemoteObject implements IStudentUKM {
+public class StudentUKM {
     private String Uname,UKMName;
     private koneksi obj_koneksi = new koneksi();
     
-    public StudentUKM()throws Exception
+    public StudentUKM()
     {
         super();
     }
