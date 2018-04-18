@@ -13,20 +13,20 @@ import java.util.ArrayList;
  *
  * @author Haris
  */
-public interface ICoach2 extends Remote{
-    public int getCoachID() throws RemoteException;;
-    public void setCoachID(int CoachID) throws RemoteException;;
-    public String getCoachName() throws RemoteException;;
-    public void setCoachName(String CoachName) throws RemoteException;;
-    public String getCoachGender() throws RemoteException;;
-    public void setCoachGender(String CoachGender) throws RemoteException;; 
-    public String getCoachAddress() throws RemoteException;;
-    public void setCoachAddress(String CoachAddress) throws RemoteException;;
-    public String getCoachPhoneNumber() throws RemoteException;;
-    public void setCoachPhoneNumber(String CoachPhoneNumber) throws RemoteException;; 
-    public int doInsert() throws RemoteException;;
-    public int doUpdate() throws RemoteException;;
-    public int doDelete() throws RemoteException;;  
-    public ArrayList display() throws RemoteException;;
-    public ArrayList getRecord() throws RemoteException;;
+public interface ICoach2{
+    public int getCoachID();
+    public void setCoachID(int CoachID);
+    public String getCoachName();
+    public void setCoachName(String CoachName);
+    public String getCoachGender();
+    public void setCoachGender(String CoachGender); 
+    public String getCoachAddress();
+    public void setCoachAddress(String CoachAddress);
+    public String getCoachPhoneNumber();
+    public void setCoachPhoneNumber(String CoachPhoneNumber);
+    public int doInsert();
+    public int doUpdate();
+    public int doDelete();  
+    public ArrayList display();
+    public ArrayList getRecord();
 }

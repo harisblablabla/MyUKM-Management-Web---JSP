@@ -37,32 +37,35 @@ public class Coachserv extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String status = request.getParameter("Btn");
             String gender = request.getParameter("gender");
-            Coachserv cc = new Coachserv();
+            Coach cc = new Coach();
             if(status.equals("Update")){
-                cc.setCoachID(request.getParameter("txtID"));
+                
                 cc.setCoachName(request.getParameter("txtName"));
                 cc.setCoachGender(gender);
                 cc.setCoachAddress(request.getParameter("txtAddress"));
                 cc.setCoachPhoneNumber(request.getParameter("txtPhoneNumber"));
+                cc.setCoachID(Integer.parseInt(request.getParameter("txtID")));
                 int i = cc.doUpdate();
                 if(i > 0){
-                    response.sendRedirect("Doctor.jsp?ket=Sukses"); //belom
+                    response.sendRedirect("admin/coachdisplay.jsp?ket=Sukses"); 
                 }else{
-                    response.sendRedirect("Doctor.jsp?ket=Gagal"); //
+                    response.sendRedirect("admin/coachdisplay.jsp?ket=Gagal"); //
                 }
             }else if(status.equals("Save")){
-                cc.setCoachID(request.getParameter("txtID"));
+                //cc.setCoachID(Integer.parseInt(request.getParameter("txtID")));
                 cc.setCoachName(request.getParameter("txtName"));
                 cc.setCoachGender(gender);
                 cc.setCoachAddress(request.getParameter("txtAddress"));
                 cc.setCoachPhoneNumber(request.getParameter("txtPhoneNumber"));
                 int i = cc.doInsert();
                 if(i > 0){
-                    response.sendRedirect("Doctor.jsp?ket=Sukses");
+                    response.sendRedirect("admin/coachdisplay.jsp?ket=Sukses");
                 }else{
-                    response.sendRedirect("Doctor.jsp?ket=Gagal");
+                    response.sendRedirect("admin/coachdisplay.jsp?ket=Gagal");
+                    
                 }
-            }
+                
+            }response.sendRedirect("admin/coachdisplay.jsp?ket=Gagal");
         }
     }
 

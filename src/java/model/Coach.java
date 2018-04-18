@@ -18,7 +18,7 @@ import object.ICoach2;
  *
  * @author Haris
  */
-public class Coach {
+public class Coach implements ICoach2{
     private int CoachID;
     private String CoachName,CoachGender,CoachAddress,CoachPhoneNumber;
     private koneksi obj_koneksi = new koneksi();
