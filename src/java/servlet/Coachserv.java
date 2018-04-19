@@ -18,7 +18,7 @@ import model.Coach;
  *
  * @author Ryandika
  */
-@WebServlet(name = "Coach", urlPatterns = {"/Coach"})
+@WebServlet(name = "Coachserv", urlPatterns = {"/Coachserv"})
 public class Coachserv extends HttpServlet {
 
     /**
@@ -63,9 +63,8 @@ public class Coachserv extends HttpServlet {
                 }else{
                     response.sendRedirect("admin/coachdisplay.jsp?ket=Gagal");
                     
-                }
-                
-            }response.sendRedirect("admin/coachdisplay.jsp?ket=Gagal");
+                }   
+            }
         }
     }
 

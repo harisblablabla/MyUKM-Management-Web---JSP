@@ -69,6 +69,7 @@
                           }
                       %>
                       Berikut adalah data coach.
+                      <a role="button" class="btn btn-default col-sm-1" href="coach.jsp?status=Add">Add</a><br><br>
                     </p>
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                       <thead>
@@ -102,8 +103,8 @@
                             out.println("<td>"+getCoachAddress+"</td>");
                             out.println("<td>"+getCoachPhoneNumber+"</td>");
                             out.println("<td>");
-                            out.println("<a href='view_book.jsp?id="+getCoachID+"'>View </a>");
-                            out.println("<a href='edit_book.jsp?id="+getCoachID+"'>Modify </a>");
+                           
+                            out.println("<a role='button' class='btn btn-info' href='coach.jsp?status=Update&id="+getCoachID+"' >Modify </a>");
                             out.println("<a href='delete_book.jsp?id="+getCoachID+"'>Delete </a>");
                             out.println("</td>");
                             

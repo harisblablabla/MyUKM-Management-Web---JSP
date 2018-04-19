@@ -37,7 +37,7 @@
                           if(status.equals("Add")){%>
                               <h2>Add Coach</h2>
                               <%}else if(status.equals("Update")){%>
-                                  <h2>Update Doctor</h2>
+                                  <h2>Update Coach</h2>
                               <%}
     %>
     </center>
@@ -69,14 +69,26 @@
                             //idDoctor = mDoc.autoid();
                         }
                         %>
-                    <fieldset disabled>
+                        
+                        <fieldset disabled>
                         <div class="form-group">
-                          <label class="col-md-3 control-label" for="txtIID">ID Doctor</label>
+                          <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
+                          <div class="col-md-9">
+                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="">
+                          </div>
+                        </div>
+                        
+                    </fieldset>
+<!--                    }else
+                        <fieldset disabled>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
                           <div class="col-md-9">
                               <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachID%>">
                           </div>
                         </div>
-                    </fieldset>
+                    </fieldset>-->
+                  
                 
 <!--                 <div class="form-group">
                   <label class="col-md-3 control-label" for="DDIdSpecialist">ID Specialist</label>

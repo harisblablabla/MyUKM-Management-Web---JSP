@@ -15,15 +15,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Coach</title>
 
-        <link href="assets/dashboard/css/style.css" rel="stylesheet" />
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="assets/css/Style.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Bootstrap -->
+    <link href="../assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../assets/vendors/nprogress/nprogress.css" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+    <!-- Datatables -->
+    <link href="../assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <center>
         <%
                           String status;
@@ -31,7 +37,7 @@
                           if(status.equals("Add")){%>
                               <h2>Add Coach</h2>
                               <%}else if(status.equals("Update")){%>
-                                  <h2>Update Doctor</h2>
+                                  <h2>Update Coach</h2>
                               <%}
     %>
     </center>
@@ -63,14 +69,26 @@
                             //idDoctor = mDoc.autoid();
                         }
                         %>
-                    <fieldset disabled>
+                        
+                        <fieldset disabled>
                         <div class="form-group">
-                          <label class="col-md-3 control-label" for="txtIID">ID Doctor</label>
+                          <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
+                          <div class="col-md-9">
+                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="">
+                          </div>
+                        </div>
+                        
+                    </fieldset>
+<!--                    }else
+                        <fieldset disabled>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
                           <div class="col-md-9">
                               <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachID%>">
                           </div>
                         </div>
-                    </fieldset>
+                    </fieldset>-->
+                  
                 
 <!--                 <div class="form-group">
                   <label class="col-md-3 control-label" for="DDIdSpecialist">ID Specialist</label>
@@ -106,23 +124,23 @@
                   <div class="col-md-9">
                       <input type="text" id="txtPhone" name="txtPhoneNumber" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachPhoneNumber%>">
                   </div>
-                </div>
+                  </div>
 
                               <%
                           if(status != null){
                             if(status.equals("Add") && status != null){%>
-                               <div class="form-group">
+                <div class="form-group">
                   <div class="col-md-12 text-right">
-                      <input type="submit" value="Save" name="Btn">
+                      <input type="submit" value="Save" name="Btn" class="btn btn-default">
                   </div>
                 </div><%
                             }else if(status.equals("Update") && status != null){%>
-                               <div class="form-group">
-                                <div class="col-md-12 text-right">
-                                    <input type="submit" value="Update" name="Btn">
-                                </div>
-                              </div> 
-                            <%}
+                <div class="form-group">
+                  <div class="col-md-12 text-right">
+                      <input type="submit" value="Update" name="Btn">
+                  </div>
+                </div> 
+                      <%}
                           }
                       %>
                 
@@ -131,18 +149,33 @@
             </div>
         </div>
     </form>
-    <script src="assets/js/jquery-3.1.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.table').DataTable();
-      });
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
+    <!-- jQuery -->
+    <script src="../assets/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../assets/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../assets/vendors/nprogress/nprogress.js"></script>
+    
+    <!-- Datatables -->
+    <script src="../assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../assets/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../assets/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../assets/build/js/custom.min.js"></script>
                     
     </body>
 </html>
