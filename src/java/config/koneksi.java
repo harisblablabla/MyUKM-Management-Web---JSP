@@ -21,8 +21,10 @@ public class koneksi {
            try
            {
                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-               String url = "jdbc:sqlserver://DESKTOP-MEO5I55\\DHADOTID;databaseName=ManagementUKM";
-               con = DriverManager.getConnection(url,"sa","qwerty");
+//               String url = "jdbc:sqlserver://DESKTOP-MEO5I55\\DHADOTID;databaseName=ManagementUKM";
+//               con = DriverManager.getConnection(url,"sa","qwerty");
+               String url = "jdbc:sqlserver://GR-PC;databaseName=ManagementUKM";
+               con = DriverManager.getConnection(url,"sa","123456");
            }
             catch(Exception ex)
             {
