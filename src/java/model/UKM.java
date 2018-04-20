@@ -159,6 +159,30 @@ public class UKM {
          return data;
     }
     
+     public ArrayList tableUKM(){
+        obj_koneksi.openConnection();
+        ArrayList data = new ArrayList();
+        String sql = "select * from UKM.ukm";
+        try {
+            Statement statement = obj_koneksi.con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+             while(rs.next())
+             {
+              this.setUKMID(rs.getInt(1));
+                 this.setUKMName(rs.getString(2));
+                 this.setDescription(rs.getString(3));
+                 this.setCoachID(rs.getInt(4));
+                 data.add(this.getUKMID());
+                 data.add(this.getUKMName());
+                 data.add(this.getDescription());
+                 data.add(this.getCoachID());
+             }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return data;
+    }
+    
     public ArrayList displayinschedule()
     {
          ArrayList data = new ArrayList();

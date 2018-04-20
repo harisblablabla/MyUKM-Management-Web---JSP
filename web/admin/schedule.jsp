@@ -1,11 +1,13 @@
 <%-- 
-    Document   : coach
-    Created on : Apr 13, 2018, 4:23:17 PM
-    Author     : Ryandika
+    Document   : schedule
+    Created on : Apr 19, 2018, 10:51:15 PM
+    Author     : dhadotid
 --%>
 
+<%@page import="model.UKM"%>
+<%@page import="model.Place"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Coach"%>
+<%@page import="model.Schedule"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,46 +48,57 @@
     <body>
         
        
-    <form name="CoachForm" method="post" action="../Coachserv">
+    <form name="ScheduleForm" method="post" action="../Scheduleserv">
         <div class="container form-horizontal">
             <div class="row">
-                
-                
+                <div class="col-md-7 col-md-offset-3">
+                <div class="custom">
                     <%
-                        String CoachName = "", CoachGender = "", CoachAddress = "", CoachPhoneNumber = "";
-                        Integer CoachID = 0;
-                        Coach cc = new Coach();
+                        String ScheduleID = "", Day = "", StartTime = "", EndTime = "", UKMName = "";
+                        Integer UKMPlaceID = 0;
+                        Schedule cc = new Schedule();
                         if(status.equals("Update")){
-                            CoachID = Integer.parseInt(request.getParameter("id"));
+                            ScheduleID = request.getParameter("id");
                             ArrayList xx = new ArrayList();
-                            cc.setCoachID(CoachID);
+                            cc.setScheduleID(ScheduleID);
                             xx = cc.getRecord();
-                            CoachID = (Integer)xx.get(0);
-                            CoachName = (String)xx.get(1);
-                            CoachGender = (String)xx.get(2);
-                            CoachAddress = (String)xx.get(3);
-                            CoachPhoneNumber = (String)xx.get(4);
+                            ScheduleID = (String)xx.get(0);
+                            Day = (String)xx.get(1);
+                            StartTime = (String)xx.get(2);
+                            EndTime = (String)xx.get(3);
+                            UKMPlaceID = (Integer)xx.get(4);
+                            UKMName = (String)xx.get(5);
                         }else{
                             //idDoctor = mDoc.autoid();
                         }
                         %>
                         
                         
-                        
+                        <% if(status.equals("Update"))
+                        {%> <div class="form-group">
+                          <label class="col-md-3 control-label" for="txtIID">Schedule ID</label>
+                          <div class="col-md-9">
+                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value=<%=ScheduleID%>>
+                          </div>
+                        </div><%
+                        } else{%>
                         <div class="form-group">
-                          <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
+                          <label class="col-md-3 control-label" for="txtIID">Schedule ID</label>
                           <div class="col-md-9">
                               <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="">
                           </div>
-                        </div>
+                        </div><%
+                        }
+                        }%>
                         
-                    
+                        
+                
 <!--                    }else
                         <fieldset disabled>
                         <div class="form-group">
                           <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
                           <div class="col-md-9">
-                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachID%>">
+                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value=">
                           </div>
                         </div>
                     </fieldset>-->
@@ -97,35 +110,96 @@
                   </div>
                 </div> -->
                 
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="CoachName">Coach Name</label>
+<!--                <div class="form-group">
+                  <label class="col-md-3 control-label" for="Day">Day</label>
                   <div class="col-md-9">
-                    <input type="text" id="txtName" name="txtName" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachName%>">
+                    <input type="text" id="txtDay" name="txtDay" required="required" class="form-control col-md-7 col-xs-12" value="<%=Day%>">
                   </div>
-                </div>
+                </div>-->
 
                 <div class="form-group">
-                  <label class="col-md-3 control-label" for="gender">Gender</label>
+                  <label class="col-md-3 control-label" for="Day">Day</label>
                   <div class="col-md-9">
-                    <input type="radio" name="gender" value="male"> Male
-                    <input type="radio" name="gender" value="female"> Female
+                     <select name="Day">
+                         <option value="Sunday">Sunday</option>
+                         <option value="Monday">Monday</option>
+                         <option value="Tuesday">Tuesday</option>
+                         <option value="Wednesday">Wednesday</option>
+                         <option value="Thursday">Thursday</option>
+                         <option value="Friday">Friday</option>
+                         <option value="Saturday">Saturday</option>
+                      </select> 
                   </div>
                 </div>
       
 
                 <div class="form-group">
-                  <label class="col-md-3 control-label" for="CoachAddress">Address</label>
+                  <label class="col-md-3 control-label" for="StartTime">Start Time</label>
                   <div class="col-md-9">
-                      <input type="text" id="txtPhone" name="txtAddress" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachAddress%>">
+                      <input type="text" id="txtStartTime" name="txtStartTime" required="required" class="form-control col-md-7 col-xs-12" value="<%=StartTime%>">
                   </div>
                 </div>
                   
                   <div class="form-group">
-                  <label class="col-md-3 control-label" for="CoachPhonenumber">Phone Number</label>
+                  <label class="col-md-3 control-label" for="EndTime">End Time</label>
                   <div class="col-md-9">
-                      <input type="text" id="txtPhone" name="txtPhoneNumber" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachPhoneNumber%>">
+                      <input type="text" id="txtEndTime" name="txtEndTime" required="required" class="form-control col-md-7 col-xs-12" value="<%=EndTime%>">
                   </div>
                   </div>
+                  
+                  
+                   <div class="form-group">
+                  <label class="col-md-3 control-label" for="txtUKMPlaceID">Place ID</label>
+                  <div class="col-md-9">
+                     <select name="txtUKMPlaceID">
+                         <%
+                            Place ms = new Place();
+                            ArrayList data = ms.tablePlace();
+                            for(int i = 0;i < data.size()-1;i+=2)
+                            {
+                                Integer ukmplaceid = (Integer)data.get(i);
+                                String placename = (String)data.get(i+1);
+                                String value = ukmplaceid + " - "  + placename;
+                                out.println("<option value='"+ukmplaceid+"'>"+value+"</option>");
+                            }
+                         %>
+                      </select> 
+                  </div>
+                </div>
+<!--                        <div class="form-group">
+                  <label class="col-md-3 control-label" for="UKMPlaceID">PlaceID</label>
+                  <div class="col-md-9">
+                      <input type="text" id="txtUKMPlaceID" name="txtUKMPlaceID" required="required" class="form-control col-md-7 col-xs-12" value="">
+                  </div>
+                  </div>-->
+                  
+<!--                  <div class="form-group">
+                  <label class="col-md-3 control-label" for="UKMName">UKM Name</label>
+                  <div class="col-md-9">
+                      <input type="text" id="txtUKMName" name="txtUKMName" required="required" class="form-control col-md-7 col-xs-12" value="">
+                  </div>
+                  </div>-->
+
+                  <div class="form-group">
+                  <label class="col-md-3 control-label" for="txtUKMName">UKM Name</label>
+                  <div class="col-md-9">
+                     <select name="txtUKMName">
+                         <%
+                            UKM ukk = new UKM();
+                            ArrayList datax = ukk.tableUKM();
+                            for(int i = 0;i < datax.size()-1;i+=4)
+                            {
+                                Integer ukmid = (Integer)datax.get(i);
+                                String ukmname = (String)datax.get(i+1);
+                                String description = (String)datax.get(i+2);
+                                Integer coachid = (Integer)datax.get(i+3);
+                                String value = ukmname;
+                                out.println("<option value='"+ukmname+"'>"+value+"</option>");
+                            }
+                         %>
+                      </select> 
+                  </div>
+                </div>
 
                               <%
                           if(status != null){
@@ -145,8 +219,8 @@
                           }
                       %>
                 
-                
-                
+                </div>
+                </div>
             </div>
         </div>
     </form>

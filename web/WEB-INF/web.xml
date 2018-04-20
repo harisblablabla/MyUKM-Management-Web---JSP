@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Placeserv</servlet-name>
+        <servlet-class>servlet.Placeserv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UKMserv</servlet-name>
+        <servlet-class>servlet.UKMserv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Scheduleserv</servlet-name>
+        <servlet-class>servlet.Scheduleserv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Studentserv</servlet-name>
+        <servlet-class>servlet.Studentserv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Placeserv</servlet-name>
+        <url-pattern>/Placeserv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UKMserv</servlet-name>
+        <url-pattern>/UKMserv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Scheduleserv</servlet-name>
+        <url-pattern>/Scheduleserv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Studentserv</servlet-name>
+        <url-pattern>/Studentserv</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

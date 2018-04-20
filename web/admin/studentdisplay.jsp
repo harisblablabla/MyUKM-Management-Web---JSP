@@ -1,11 +1,11 @@
 <%-- 
-    Document   : coachdisplay
-    Created on : Apr 13, 2018, 5:42:20 PM
-    Author     : Ryandika
+    Document   : studentdisplay
+    Created on : Apr 20, 2018, 4:15:28 AM
+    Author     : dhadotid
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Coach"%>
+<%@page import="model.LoginUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@
              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Coach</h2>
+                    <h2>Student</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -69,43 +69,52 @@
                           }
                       %>
                       
-                      <a role="button" class="btn btn-default col-sm-1" href="coach.jsp?status=Add">Add</a><br><br>
+                     
                     </p>
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Coach Name</th>
+                          <th>Student Name</th>
                           <th>Gender</th>
-                          <th>Address</th>
-                          <th>PhoneNumber</th>
+                          <th>Phone Number</th>
+                          <th>Faculty</th>
+                          <th>Major</th>
+                          <th>Batch</th>
+                          <th>Is Admin</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                       <%
                       try{
-                        Coach bk = new Coach();
+                        LoginUser bk = new LoginUser();
                         ArrayList data = bk.display();
-                        for(int i = 0;i < data.size()-1;i+=5)
+                        for(int i = 0;i < data.size()-1;i+=8)
                         {
                             //fac_code, fac_name, fac_email, fac_phone
-                            int getCoachID = (Integer)data.get(i);
-                            String getCoachName = (String)data.get(i+1);
-                            String getCoachGender = (String)data.get(i+2);
-                            String getCoachAddress = (String)data.get(i+3);
-                            String getCoachPhoneNumber = (String)data.get(i+4);
+                            int getID = (Integer)data.get(i);
+                            String getStudentName = (String)data.get(i+1);
+                            String getGender = (String)data.get(i+2);
+                            String getPhoneNumber = (String)data.get(i+3);
+                            String getFaculty = (String)data.get(i+4);
+                            String getMajor = (String)data.get(i+5);
+                            String getBatch = (String)data.get(i+6);
+                            int getIsCapt = (Integer)data.get(i+7);
                             
                             out.println("<tr>");
-                            out.println("<td>"+String.valueOf(getCoachID)+"</td>");
-                            out.println("<td>"+getCoachName+"</td>");
-                            out.println("<td>"+getCoachGender+"</td>");
-                            out.println("<td>"+getCoachAddress+"</td>");
-                            out.println("<td>"+getCoachPhoneNumber+"</td>");
+                            out.println("<td>"+String.valueOf(getID)+"</td>");
+                            out.println("<td>"+getStudentName+"</td>");
+                            out.println("<td>"+getGender+"</td>");
+                            
+                            out.println("<td>"+getPhoneNumber+"</td>");
+                            out.println("<td>"+getFaculty+"</td>");
+                            out.println("<td>"+getMajor+"</td>");
+                            out.println("<td>"+getBatch+"</td>");
+                            out.println("<td>"+String.valueOf(getIsCapt)+"</td>");
                             out.println("<td>");
                            
-                            out.println("<a role='button' class='btn btn-info' href='coach.jsp?status=Update&id="+getCoachID+"' >Modify </a>");
-                            out.println("<a href='delete_book.jsp?id="+getCoachID+"'>Delete </a>");
+                            out.println("<a role='button' class='btn btn-info' href='../studentregister.jsp?status=Update&id="+getID+"' >Modify </a>");
                             out.println("</td>");
                             
                             out.println("</tr>");

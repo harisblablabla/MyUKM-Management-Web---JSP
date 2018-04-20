@@ -77,7 +77,7 @@
                               <%}
                           }
                       %>
-                      Berikut adalah data coach.
+                      <a role="button" class="btn btn-default col-sm-1" href="place.jsp?status=Add">Add</a><br><br>
                     </p>
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                       <thead>
@@ -95,16 +95,14 @@
                         for(int i = 0;i < data.size()-1;i+=2)
                         {
                             //fac_code, fac_name, fac_email, fac_phone
-                            int getPlaceID = (Integer)data.get(i);
+                            int getUKMPlaceID = (Integer)data.get(i);
                             String getPlaceName = (String)data.get(i+1);
                             
                             out.println("<tr>");
-                            out.println("<td>"+String.valueOf(getPlaceID)+"</td>");
+                            out.println("<td>"+String.valueOf(getUKMPlaceID)+"</td>");
                             out.println("<td>"+getPlaceName+"</td>");
                             out.println("<td>");
-                            out.println("<a href='view_book.jsp?id="+getPlaceID+"'>View </a>");
-                            out.println("<a href='edit_book.jsp?id="+getPlaceID+"'>Modify </a>");
-                            out.println("<a href='delete_book.jsp?id="+getPlaceID+"'>Delete </a>");
+                            out.println("<a role='button' class='btn btn-info' href='place.jsp?status=Update&id="+getUKMPlaceID+"' >Modify </a>");
                             out.println("</td>");
                             
                             out.println("</tr>");

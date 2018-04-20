@@ -21,7 +21,7 @@ import object.ILoginUser;
  */
 public class LoginUser {
     
-    private int ID;
+    private int ID, IsCapt;
     private String StudentName, Gender, Address, PhoneNumber, Faculty, Major, Batch, Uname, Pword, UKMName;
     private koneksi obj_koneksi = new koneksi();
     
@@ -37,6 +37,14 @@ public class LoginUser {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+    
+     public int getIsCapt() {
+        return IsCapt;
+    }
+
+    public void setIsCapt(int IsCapt) {
+        this.IsCapt = IsCapt;
     }
     
     public String getStudentName() {
@@ -118,6 +126,7 @@ public class LoginUser {
     public void setUKMName(String UKMName) {
         this.UKMName = UKMName;
     }
+   
     
      public koneksi getObj_koneksi() {
         return obj_koneksi;
@@ -185,7 +194,7 @@ public class LoginUser {
         try
         {
             obj_koneksi.openConnection();
-            String str = "insert into Person.Student(StudentName,Gender,Address,PhoneNumber,Faculty,Major,Batch,Uname,Pword) values(?,?,?,?,?,?,?,?,?)";
+            String str = "insert into Person.Student(StudentName,Gender,Address,PhoneNumber,Faculty,Major,Batch,Uname,Pword,IsCapt) values(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pr = obj_koneksi.con.prepareStatement(str);
             pr.setString(1, StudentName);
             pr.setString(2, Gender);
@@ -196,6 +205,7 @@ public class LoginUser {
             pr.setString(7, Batch);
             pr.setString(8, Uname);
             pr.setString(9, Pword);
+            pr.setInt(10, IsCapt);
             i = pr.executeUpdate();
         }
         catch(SQLException ex)
@@ -220,6 +230,7 @@ public class LoginUser {
                     "Batch = ?, " +
                     "Uname = ?, " +
                     "Pword = ?, " +
+                    "IsCapt = ?, " +
                     "where ID = ?";
             PreparedStatement pr = obj_koneksi.con.prepareStatement(str);
             pr.setString(1, StudentName);
@@ -231,7 +242,8 @@ public class LoginUser {
             pr.setString(7, Batch);
             pr.setString(8, Uname);
             pr.setString(9, Pword);
-            pr.setInt(10, ID);
+            pr.setInt(10, IsCapt);
+            pr.setInt(11, ID);
             i = pr.executeUpdate();
                   
         }
@@ -267,10 +279,53 @@ public class LoginUser {
          {
              obj_koneksi.openConnection();
              Statement stmt = obj_koneksi.con.createStatement();
-             String str = "select ID,StudentName,Gender,Address,PhoneNumber,Faculty,Major,Batch,Uname,Pword from Person.Student";
+             String str = "select ID,StudentName,Gender,PhoneNumber,Faculty,Major,Batch,IsCapt from Person.Student";
              ResultSet rs = stmt.executeQuery(str);
              while(rs.next())
              {
+                 this.setID(rs.getInt(1));
+                 this.setStudentName(rs.getString(2));
+                 this.setGender(rs.getString(3));
+                 //this.setAddress(rs.getString(4));
+                 this.setPhoneNumber(rs.getString(4));
+                 this.setFaculty(rs.getString(5));
+                 this.setMajor(rs.getString(6));
+                 this.setBatch(rs.getString(7));
+                 //this.setUname(rs.getString(9));
+                 //this.setPword(rs.getString(10));
+                 this.setIsCapt(rs.getInt(8));
+                 data.add(this.getID());
+                 data.add(this.getStudentName());
+                 data.add(this.getGender());
+                 //data.add(this.getAddress());
+                 data.add(this.getPhoneNumber());
+                 data.add(this.getFaculty());
+                 data.add(this.getMajor());
+                 data.add(this.getBatch());
+                 //data.add(this.getUname());
+                 //data.add(this.getPword());
+                 data.add(this.getIsCapt());
+             }
+         }
+         catch(SQLException ex)
+         {
+             System.out.println(ex.getMessage());
+         }
+         return data;
+    }
+    
+    public ArrayList getRecordStudent()
+    {
+        ArrayList data = new ArrayList();
+        try
+        {
+            obj_koneksi.openConnection();
+            String str = "select * from Person.Student where ID = ?";
+            PreparedStatement pr = obj_koneksi.con.prepareStatement(str);
+            pr.setInt(1, ID);
+            ResultSet rs = pr.executeQuery();
+            while(rs.next())
+            {
                  this.setID(rs.getInt(1));
                  this.setStudentName(rs.getString(2));
                  this.setGender(rs.getString(3));
@@ -281,6 +336,7 @@ public class LoginUser {
                  this.setBatch(rs.getString(8));
                  this.setUname(rs.getString(9));
                  this.setPword(rs.getString(10));
+                 this.setIsCapt(rs.getInt(11));
                  data.add(this.getID());
                  data.add(this.getStudentName());
                  data.add(this.getGender());
@@ -291,13 +347,14 @@ public class LoginUser {
                  data.add(this.getBatch());
                  data.add(this.getUname());
                  data.add(this.getPword());
-             }
-         }
-         catch(SQLException ex)
-         {
-             System.out.println(ex.getMessage());
-         }
-         return data;
+                 data.add(this.getIsCapt());
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        return data;
     }
     
     public ArrayList displayviewstudent()

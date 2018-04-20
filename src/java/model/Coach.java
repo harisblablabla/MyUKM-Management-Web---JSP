@@ -141,6 +141,32 @@ public class Coach implements ICoach2{
         return i;
     }
     
+    public ArrayList tableCoach(){
+        obj_koneksi.openConnection();
+        ArrayList data = new ArrayList();
+        String sql = "select * from Person.Coach";
+        try {
+            Statement statement = obj_koneksi.con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+             while(rs.next())
+             {
+                this.setCoachID(rs.getInt(1));
+                this.setCoachName(rs.getString(2));
+                this.setCoachGender(rs.getString(3));
+                this.setCoachAddress(rs.getString(4));
+                this.setCoachPhoneNumber(rs.getString(5));
+                data.add(this.getCoachID());
+                data.add(this.getCoachName());
+                data.add(this.getCoachGender());
+                data.add(this.getCoachAddress());
+                data.add(this.getCoachPhoneNumber());
+             }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return data;
+    }
+    
     public ArrayList display()
     {
          ArrayList data = new ArrayList();

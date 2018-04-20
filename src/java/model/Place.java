@@ -131,6 +131,25 @@ public class Place {
          return data;
     }
     
+     public ArrayList tablePlace(){
+        obj_koneksi.openConnection();
+        ArrayList data = new ArrayList();
+        String sql = "select * from UKM.ukmplace";
+        try {
+            Statement statement = obj_koneksi.con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+             while(rs.next())
+             {
+               this.setUKMPlaceID(rs.getInt(1));
+                 this.setPlaceName(rs.getString(2));
+                 data.add(this.getUKMPlaceID());
+                 data.add(this.getPlaceName());
+             }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
+        return data;
+    }
     public ArrayList getRecord()
     {
         ArrayList data = new ArrayList();

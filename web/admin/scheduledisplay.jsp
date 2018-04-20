@@ -77,7 +77,7 @@
                               <%}
                           }
                       %>
-                      Berikut adalah data Schedule.
+                      <a role="button" class="btn btn-default col-sm-1" href="schedule.jsp?status=Add">Add</a><br><br>
                     </p>
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                       <thead>
@@ -113,7 +113,7 @@
                             out.println("<td>"+String.valueOf(getPlaceID)+"</td>");
                             out.println("<td>"+getUKMName+"</td>");
                             out.println("<td>");
-                            out.println("<a href='view_book.jsp?id="+getScheduleID+"'>View </a>");
+                            out.println("<a role='button' class='btn btn-info' href='schedule.jsp?status=Update&id="+getScheduleID+"' >Modify </a>");
                             out.println("<a href='edit_book.jsp?id="+getScheduleID+"'>Modify </a>");
                             out.println("<a href='delete_book.jsp?id="+getScheduleID+"'>Delete </a>");
                             out.println("</td>");
