@@ -74,22 +74,31 @@
                         %>
                         
                         
-                        <% if(status.equals("Update"))
-                        {%> <div class="form-group">
+                        
+                        <% 
+                          if(status != null){
+                            if(status.equals("Update") && status != null){%>
+                            
+                <div class="form-group">
                           <label class="col-md-3 control-label" for="txtIID">Schedule ID</label>
                           <div class="col-md-9">
-                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value=<%=ScheduleID%>>
+                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=ScheduleID%>">
                           </div>
-                        </div><%
-                        } else{%>
-                        <div class="form-group">
+                        </div>
+                            <%
+                            }else if(status.equals("Add") && status != null){%>
+                            <fieldset disabled>
+                            <div class="form-group">
                           <label class="col-md-3 control-label" for="txtIID">Schedule ID</label>
                           <div class="col-md-9">
                               <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="">
                           </div>
-                        </div><%
-                        }
-                        }%>
+                        </div> 
+                            </fieldset>
+                      <%}
+                          }
+                      %>
+                        
                         
                         
                 

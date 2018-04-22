@@ -55,7 +55,6 @@
                 %>
                 </span>
               </div>
-              <div class="clearfix"></div>
             </div>
             <!-- /menu profile quick info -->
 
@@ -66,14 +65,12 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="index.jsp"><i class="fa fa-home"></i> Dashboard </span></a></li>
-                  <li><a id="dcch" href="#" style="padding-right: 100%;">Coach </span></a></li>
-                  <li><a><i class="fa fa-times"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="peminjaman.jsp">Peminjaman</a></li>
-                      <li><a href="pengembalian.jsp">Pengembalian</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="index.jsp"><i class="fa fa-home"></i> Dashboard Admin</span></a></li>
+                  <li><a id="dcch" href="ukmdisplay.jsp" style="padding-right: 100%;">UKM </span></a></li>
+                  <li><a id="dcch" href="coachdisplay.jsp" style="padding-right: 100%;">Coach </span></a></li>
+                  <li><a id="dcch" href="scheduledisplay.jsp" style="padding-right: 100%;">Schedule </span></a></li>
+                  <li><a id="dcch" href="placedisplay.jsp" style="padding-right: 100%;">Place </span></a></li>
+                  <li><a id="dcch" href="studentdisplay.jsp" style="padding-right: 100%;">Student </span></a></li>
                 </ul>
               </div>
 
@@ -114,7 +111,6 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
                     <li><a href="../SignOut"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -129,29 +125,18 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Dashboard</h3>
+                <h3>Dashboard Admin</h3>
               </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="clearfix"></div>
 
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12" id="content">konten</div>
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Plain Page</h2>
+                    
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>

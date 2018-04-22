@@ -104,8 +104,9 @@
                             out.println("<td>"+getCoachPhoneNumber+"</td>");
                             out.println("<td>");
                            
-                            out.println("<a role='button' class='btn btn-info' href='coach.jsp?status=Update&id="+getCoachID+"' >Modify </a>");
-                            out.println("<a href='delete_book.jsp?id="+getCoachID+"'>Delete </a>");
+                            out.println("<a role='button' class='btn btn-info' href='coach.jsp?status=Update&id="+getCoachID+"' >Modify </a>");%>
+                      <a type="submit" class="btn btn-danger" href="../Coachserv?status=Delete&id=<% out.println(String.valueOf(getCoachID)); %>">Delete</a>
+                               <% 
                             out.println("</td>");
                             
                             out.println("</tr>");

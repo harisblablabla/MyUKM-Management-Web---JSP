@@ -37,6 +37,7 @@ public class Coachserv extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String status = request.getParameter("Btn");
             String gender = request.getParameter("gender");
+            Integer CoachID = Integer.parseInt(request.getParameter("CoachID"));
             Coach cc = new Coach();
             if(status.equals("Update")){
                 
@@ -64,6 +65,18 @@ public class Coachserv extends HttpServlet {
                     response.sendRedirect("admin/coachdisplay.jsp?ket=Gagal");
                     
                 }   
+            }
+            else if(status.equals("Delete"))
+            {
+                    
+                    cc.setCoachID(Integer.parseInt(request.getParameter("CoachID")));
+                    
+                    int res = cc.doDelete();
+                    if (res!=0) {
+                     response.sendRedirect("admin/coachdisplay.jsp?ket=deletesuccess");
+                    } else {
+                     response.sendRedirect("admin/coachdisplay.jsp?ket=deletefailed");
+                    } 
             }
         }
     }

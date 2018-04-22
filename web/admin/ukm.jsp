@@ -71,30 +71,29 @@
                         %>
                         
                         
-                        <fieldset disabled>
-                        <div class="form-group">
+                        <% 
+                          if(status != null){
+                            if(status.equals("Update") && status != null){%>
+                            
+                <div class="form-group">
+                          <label class="col-md-3 control-label" for="txtIID">UKM ID</label>
+                          <div class="col-md-9">
+                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=UKMID%>">
+                          </div>
+                        </div>
+                            <%
+                            }else if(status.equals("Add") && status != null){%>
+                            <fieldset disabled>
+                            <div class="form-group">
                           <label class="col-md-3 control-label" for="txtIID">UKM ID</label>
                           <div class="col-md-9">
                               <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="">
                           </div>
-                        </div>
-                    </fieldset>
-<!--                    }else
-                        <fieldset disabled>
-                        <div class="form-group">
-                          <label class="col-md-3 control-label" for="txtIID">Coach ID</label>
-                          <div class="col-md-9">
-                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=CoachID%>">
-                          </div>
-                        </div>
-                    </fieldset>-->
-                  
-                
-<!--                 <div class="form-group">
-                  <label class="col-md-3 control-label" for="DDIdSpecialist">ID Specialist</label>
-                  <div class="col-md-9">
-                  </div>
-                </div> -->
+                        </div> 
+                            </fieldset>
+                      <%}
+                          }
+                      %>
                 
                 <div class="form-group">
                   <label class="col-md-3 control-label" for="UKMName">UKM Name</label>

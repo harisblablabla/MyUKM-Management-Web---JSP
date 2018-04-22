@@ -23,8 +23,8 @@ public class koneksi {
                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 //               String url = "jdbc:sqlserver://DESKTOP-MEO5I55\\DHADOTID;databaseName=ManagementUKM";
 //               con = DriverManager.getConnection(url,"sa","qwerty");
-               String url = "jdbc:sqlserver://DESKTOP-MEO5I55\\DHADOTID;databaseName=ManagementUKM";
-               con = DriverManager.getConnection(url,"sa","qwerty");
+               String url = "jdbc:sqlserver://RYANDIKA-PC\\SQLEXPRESS;databaseName=ManagementUKM";
+               con = DriverManager.getConnection(url,"sa","jakartaraya");
            }
             catch(Exception ex)
             {
