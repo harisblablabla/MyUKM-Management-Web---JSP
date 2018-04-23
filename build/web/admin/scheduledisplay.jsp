@@ -114,8 +114,7 @@
                             out.println("<td>"+getUKMName+"</td>");
                             out.println("<td>");
                             out.println("<a role='button' class='btn btn-info' href='schedule.jsp?status=Update&id="+getScheduleID+"' >Modify </a>");
-                            out.println("<a href='edit_book.jsp?id="+getScheduleID+"'>Modify </a>");
-                            out.println("<a href='delete_book.jsp?id="+getScheduleID+"'>Delete </a>");
+                            out.println("<a role='button' name='Btn' class='btn btn-danger' href='../ScheduleDelete?id="+getScheduleID+"'>Delete </a>"); 
                             out.println("</td>");
                             
                             out.println("</tr>");

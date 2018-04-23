@@ -81,7 +81,7 @@
                           <th>Faculty</th>
                           <th>Major</th>
                           <th>Batch</th>
-                          <th>Is Admin</th>
+                          
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -90,7 +90,7 @@
                       try{
                         LoginUser bk = new LoginUser();
                         ArrayList data = bk.display();
-                        for(int i = 0;i < data.size()-1;i+=8)
+                        for(int i = 0;i < data.size()-1;i+=7)
                         {
                             //fac_code, fac_name, fac_email, fac_phone
                             int getID = (Integer)data.get(i);
@@ -100,7 +100,7 @@
                             String getFaculty = (String)data.get(i+4);
                             String getMajor = (String)data.get(i+5);
                             String getBatch = (String)data.get(i+6);
-                            int getIsCapt = (Integer)data.get(i+7);
+                            //int getIsCapt = (Integer)data.get(i+7);
                             
                             out.println("<tr>");
                             out.println("<td>"+String.valueOf(getID)+"</td>");
@@ -111,7 +111,7 @@
                             out.println("<td>"+getFaculty+"</td>");
                             out.println("<td>"+getMajor+"</td>");
                             out.println("<td>"+getBatch+"</td>");
-                            out.println("<td>"+String.valueOf(getIsCapt)+"</td>");
+                            //out.println("<td>"+String.valueOf(getIsCapt)+"</td>");
                             out.println("<td>");
                            
                             out.println("<a role='button' class='btn btn-info' href='../studentregister.jsp?status=Update&id="+getID+"' >Modify </a>");

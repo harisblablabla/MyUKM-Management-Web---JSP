@@ -9,18 +9,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Coach;
+import javax.servlet.http.HttpSession;
 import model.LoginUser;
 
 /**
  *
- * @author dhadotid
+ * @author Haris
  */
-@WebServlet(name = "Studentserv", urlPatterns = {"/Studentserv"})
-public class Studentserv extends HttpServlet {
+@WebServlet(name = "LoginforUser", urlPatterns = {"/LoginforUser"})
+public class LoginforUser extends HttpServlet {
+    
+    LoginUser obj = new LoginUser();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,46 +39,23 @@ public class Studentserv extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String status = request.getParameter("Btn");
-            String gender = request.getParameter("gender");
-            LoginUser cc = new LoginUser();
-            if(status.equals("Update")){
-                
-                cc.setStudentName(request.getParameter("txtName"));
-                cc.setGender(gender);
-                cc.setAddress(request.getParameter("txtAddress"));
-                cc.setPhoneNumber(request.getParameter("txtPhoneNumber"));
-                cc.setFaculty(request.getParameter("Faculty"));
-                cc.setMajor(request.getParameter("txtMajor"));
-                cc.setBatch(request.getParameter("Batch"));
-                cc.setUname(request.getParameter("txtUname"));
-                cc.setPword(request.getParameter("txtPword"));
-                //cc.setIsCapt(Integer.parseInt(request.getParameter("txtiscapt")));
-                cc.setID(Integer.parseInt(request.getParameter("txtID")));
-                int i = cc.doUpdate();
-                if(i > 0){
-                    response.sendRedirect("admin/studentdisplay.jsp?ket=Sukses"); 
-                }else{
-                    response.sendRedirect("admin/studentdisplay.jsp?ket=Gagal"); //
+          obj.setUname(request.getParameter("user"));
+          obj.setPword(request.getParameter("pass"));
+          String remember = request.getParameter("remember");
+          
+          int i = obj.doLogin();
+            if(i > 0) {
+                if(remember != null) {
+                    Cookie c1 = new Cookie("siswa", obj.getUname()); 
+                    c1.setMaxAge(60*60*24);
+                    response.addCookie(c1);
                 }
-            }else if(status.equals("Save")){
-                cc.setStudentName(request.getParameter("txtName"));
-                cc.setGender(gender);
-                cc.setAddress(request.getParameter("txtAddress"));
-                cc.setPhoneNumber(request.getParameter("txtPhoneNumber"));
-                cc.setFaculty(request.getParameter("Faculty"));
-                cc.setMajor(request.getParameter("txtMajor"));
-                cc.setBatch(request.getParameter("Batch"));
-                cc.setUname(request.getParameter("txtUname"));
-                cc.setPword(request.getParameter("txtPword"));
-                //cc.setIsCapt(Integer.parseInt(request.getParameter("txtiscapt")));
-                int i = cc.doInsert();
-                if(i > 0){
-                    response.sendRedirect("loginuser.jsp?ket=Sukses");
-                }else{
-                    response.sendRedirect("loginuser.jsp?ket=Gagal");
-                    
-                }   
+                HttpSession session = request.getSession(true);
+                session.setAttribute("uname", obj.getUname());
+                response.sendRedirect("admin/dashboardstudent.jsp");  
+            }
+            else {
+                response.sendRedirect("loginuser.jsp?msg=error");
             }
         }
     }

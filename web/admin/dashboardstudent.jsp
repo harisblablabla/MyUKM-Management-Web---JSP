@@ -1,7 +1,7 @@
 <%-- 
-    Document   : dashboardadmin
-    Created on : Apr 16, 2018, 11:29:35 AM
-    Author     : Ryandika
+    Document   : dashboardstudent
+    Created on : Apr 23, 2018, 3:45:20 AM
+    Author     : Haris
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -65,12 +65,10 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="index.jsp"><i class="fa fa-home"></i> Dashboard Admin</span></a></li>
-                  <li><a id="dcch" href="ukmdisplay.jsp" style="padding-right: 100%;">UKM </span></a></li>
-                  <li><a id="dcch" href="coachdisplay.jsp" style="padding-right: 100%;">Coach </span></a></li>
-                  <li><a id="dcch" href="scheduledisplay.jsp" style="padding-right: 100%;">Schedule </span></a></li>
-                  <li><a id="dcch" href="placedisplay.jsp" style="padding-right: 100%;">Place </span></a></li>
-                  <li><a id="dcch" href="studentdisplay.jsp" style="padding-right: 100%;">Student </span></a></li>
+                  <li><a href="index.jsp"><i class="fa fa-home"></i> Dashboard Student</span></a></li>
+                  <li><a id="dcch" href="ukmdisplay.jsp" style="padding-right: 100%;">Regist UKM </span></a></li>
+                  <li><a id="dcch" href="studentdetail.jsp" style="padding-right: 100%;">View Student </span></a></li>
+                  <li><a id="dcch" href="../scheduledisplaydetail.jsp" style="padding-right: 100%;">View Schedule </span></a></li>
                 </ul>
               </div>
 
@@ -125,7 +123,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Dashboard Admin</h3>
+                <h3>Dashboard Student</h3>
               </div>
 
             </div>

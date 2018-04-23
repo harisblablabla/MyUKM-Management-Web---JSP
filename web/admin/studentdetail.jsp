@@ -1,11 +1,11 @@
 <%-- 
-    Document   : scheduledisplay
-    Created on : Apr 14, 2018, 12:12:20 AM
-    Author     : Ryandika
+    Document   : studentdetail
+    Created on : Apr 23, 2018, 3:57:01 AM
+    Author     : Haris
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Schedule"%>
+<%@page import="model.LoginUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         
-                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- Bootstrap -->
     <link href="../assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,23 +33,14 @@
     <link href="../assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="row">             
+            <div class="row">             
             
              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Schedule</h2>
+                    <h2>Student Detail</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
                       </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
@@ -77,44 +68,43 @@
                               <%}
                           }
                       %>
-                      <a role="button" class="btn btn-default col-sm-1" href="schedule.jsp?status=Add">Add</a><br><br>
+                      
+                      <a role="button" class="btn btn-default col-sm-1" href="../dashboardstudent.jsp">Back</a><br><br>
                     </p>
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Schedule ID</th>
-                          <th>Day</th>
-                          <th>Start Time</th>
-                          <th>End Time</th>
-                          <th>Place ID</th>
-                          <th>UKM</th>
+                          <th>Student Name</th>
+                          <th>Faculty</th>
+                          <th>Major</th>
+                          <th>Batch</th>
+                          <th>UKM Name</th>
                         </tr>
                       </thead>
                       <tbody>
                       <%
                       try{
-                        Schedule sch = new Schedule();
-                        ArrayList data = sch.display();
-                        for(int i = 0;i < data.size()-1;i+=6)
+                        LoginUser bk = new LoginUser();
+                        ArrayList data = bk.displayviewstudent();
+                        for(int i = 0;i < data.size()-1;i+=5)
                         {
                             //fac_code, fac_name, fac_email, fac_phone
-                            String getScheduleID = (String)data.get(i);
-                            String getDay = (String)data.get(i+1);
-                            String getStartTime = (String)data.get(i+2);
-                            String getEndTime = (String)data.get(i+3);
-                            int getPlaceID = (Integer)data.get(i+4);
-                            String getUKMName = (String)data.get(i+5);
+                            String getStudentName = (String)data.get(i);
+                            String getFaculty = (String)data.get(i+1);
+                            String getMajor = (String)data.get(i+2);
+                            String getBatch = (String)data.get(i+3);
+                            String getUKMName = (String)data.get(i+4);
                             
                             out.println("<tr>");
-                            out.println("<td>"+getScheduleID+"</td>");
-                            out.println("<td>"+getDay+"</td>");
-                            out.println("<td>"+getStartTime+"</td>");
-                            out.println("<td>"+getEndTime+"</td>");
-                            out.println("<td>"+String.valueOf(getPlaceID)+"</td>");
+                            out.println("<td>"+getStudentName+"</td>");
+                            out.println("<td>"+getFaculty+"</td>");
+                            out.println("<td>"+getMajor+"</td>");
+                            out.println("<td>"+getBatch+"</td>");
                             out.println("<td>"+getUKMName+"</td>");
                             out.println("<td>");
-                            out.println("<a role='button' class='btn btn-info' href='schedule.jsp?status=Update&id="+getScheduleID+"' >Modify </a>");
-                            out.println("<a role='button' name='Btn' class='btn btn-danger' href='../ScheduleDelete?id="+getScheduleID+"'>Delete </a>"); 
+                           
+                           
+                             
                             out.println("</td>");
                             
                             out.println("</tr>");
@@ -129,7 +119,7 @@
                                               
                       </tbody>
                     </table>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>

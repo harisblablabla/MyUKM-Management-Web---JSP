@@ -36,9 +36,9 @@
                           String status;
                           status = request.getParameter("status");
                           if(status.equals("Add")){%>
-                              <h2>Add Coach</h2>
+                              <h2>Add UKM</h2>
                               <%}else if(status.equals("Update")){%>
-                                  <h2>Update Coach</h2>
+                                  <h2>Update UKM</h2>
                               <%}
     %>
     </center>
@@ -78,7 +78,7 @@
                 <div class="form-group">
                           <label class="col-md-3 control-label" for="txtIID">UKM ID</label>
                           <div class="col-md-9">
-                              <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=UKMID%>">
+                              <input readonly type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=UKMID%>">
                           </div>
                         </div>
                             <%

@@ -35,9 +35,9 @@
                           String status;
                           status = request.getParameter("status");
                           if(status.equals("Add")){%>
-                              <h2>Add Coach</h2>
+                              <h2>Add Data</h2>
                               <%}else if(status.equals("Update")){%>
-                                  <h2>Update Coach</h2>
+                                  <h2>Update Student</h2>
                               <%}
     %>
     </center>
@@ -53,7 +53,7 @@
                 <div class="custom">
                     <%
                         String StudentName = "", Gender = "", Address = "", PhoneNumber = "", Faculty = "", Major = "", Batch = "", Uname = "", Pword = "";
-                        Integer ID = 0, IsCapt = 0;
+                        Integer ID = 0;
                         LoginUser cc = new LoginUser();
                         if(status.equals("Update")){
                             ID = Integer.parseInt(request.getParameter("id"));
@@ -70,21 +70,38 @@
                             Batch = (String)xx.get(7);
                             Uname = (String)xx.get(8);
                             Pword = (String)xx.get(9);
-                            IsCapt = (Integer)xx.get(10);
+                            //IsCapt = (Integer)xx.get(10);
                         }else{
                             //idDoctor = mDoc.autoid();
                         }
                         %>
                         
                         
-                        <fieldset disabled>
-                        <div class="form-group">
+                        
+                        <% 
+                          if(status != null){
+                            if(status.equals("Update") && status != null){%>
+                            
+                <div class="form-group">
+                          <label class="col-md-3 control-label" for="txtIID"> ID</label>
+                          <div class="col-md-9">
+                              <input readonly type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="<%=ID%>">
+                          </div>
+                        </div>
+                            <%
+                            }else if(status.equals("Add") && status != null){%>
+                            <fieldset disabled>
+                            <div class="form-group">
                           <label class="col-md-3 control-label" for="txtIID">ID</label>
                           <div class="col-md-9">
                               <input type="text" id="txtID" name="txtID" required="required" class="form-control col-md-7 col-xs-12" value="">
                           </div>
-                        </div>
-                    </fieldset>
+                        </div> 
+                            </fieldset>
+                      <%}
+                          }
+                      %>
+                    
 <!--                    }else
                         <fieldset disabled>
                         <div class="form-group">
@@ -184,12 +201,12 @@
                   </div>
                   
                   
-                                     <div class="form-group">
+<!--                                     <div class="form-group">
                   <label class="col-md-3 control-label" for="IsCapt">Is Capt</label>
                   <div class="col-md-9">
-                      <input type="text" id="txtiscapt" name="txtiscapt" required="required" class="form-control col-md-7 col-xs-12" value="<%=IsCapt%>">
+                      <input readonly type="text" id="txtiscapt" name="txtiscapt" required="required" class="form-control col-md-7 col-xs-12" value="<%//=IsCapt%>">
                   </div>
-                  </div>
+                  </div>-->
                   
 
                               <%

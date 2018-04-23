@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Coach;
-import model.LoginUser;
+import model.Schedule;
 
 /**
  *
- * @author dhadotid
+ * @author Haris
  */
-@WebServlet(name = "Studentserv", urlPatterns = {"/Studentserv"})
-public class Studentserv extends HttpServlet {
+@WebServlet(name = "ScheduleDelete", urlPatterns = {"/ScheduleDelete"})
+public class ScheduleDelete extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,47 +36,14 @@ public class Studentserv extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String status = request.getParameter("Btn");
-            String gender = request.getParameter("gender");
-            LoginUser cc = new LoginUser();
-            if(status.equals("Update")){
-                
-                cc.setStudentName(request.getParameter("txtName"));
-                cc.setGender(gender);
-                cc.setAddress(request.getParameter("txtAddress"));
-                cc.setPhoneNumber(request.getParameter("txtPhoneNumber"));
-                cc.setFaculty(request.getParameter("Faculty"));
-                cc.setMajor(request.getParameter("txtMajor"));
-                cc.setBatch(request.getParameter("Batch"));
-                cc.setUname(request.getParameter("txtUname"));
-                cc.setPword(request.getParameter("txtPword"));
-                //cc.setIsCapt(Integer.parseInt(request.getParameter("txtiscapt")));
-                cc.setID(Integer.parseInt(request.getParameter("txtID")));
-                int i = cc.doUpdate();
-                if(i > 0){
-                    response.sendRedirect("admin/studentdisplay.jsp?ket=Sukses"); 
+            Schedule sc = new Schedule();
+            sc.setScheduleID(request.getParameter("id"));
+                int i = sc.doDelete();
+                if( i > 0){
+                    response.sendRedirect("admin/scheduledisplay.jsp?ket=Sukses");
                 }else{
-                    response.sendRedirect("admin/studentdisplay.jsp?ket=Gagal"); //
+                    response.sendRedirect("admin/scheduledisplay.jsp?ket=Gagal");
                 }
-            }else if(status.equals("Save")){
-                cc.setStudentName(request.getParameter("txtName"));
-                cc.setGender(gender);
-                cc.setAddress(request.getParameter("txtAddress"));
-                cc.setPhoneNumber(request.getParameter("txtPhoneNumber"));
-                cc.setFaculty(request.getParameter("Faculty"));
-                cc.setMajor(request.getParameter("txtMajor"));
-                cc.setBatch(request.getParameter("Batch"));
-                cc.setUname(request.getParameter("txtUname"));
-                cc.setPword(request.getParameter("txtPword"));
-                //cc.setIsCapt(Integer.parseInt(request.getParameter("txtiscapt")));
-                int i = cc.doInsert();
-                if(i > 0){
-                    response.sendRedirect("loginuser.jsp?ket=Sukses");
-                }else{
-                    response.sendRedirect("loginuser.jsp?ket=Gagal");
-                    
-                }   
-            }
         }
     }
 

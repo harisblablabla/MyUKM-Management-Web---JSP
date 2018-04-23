@@ -108,8 +108,7 @@
                             out.println("<td>"+String.valueOf(getCoachID)+"</td>");
                             out.println("<td>");
                             out.println("<a role='button' class='btn btn-info' href='ukm.jsp?status=Update&id="+getUKMID+"' >Modify </a>");
-                            out.println("<a href='edit_book.jsp?id="+getUKMID+"'>Modify </a>");
-                            out.println("<a href='delete_book.jsp?id="+getUKMID+"'>Delete </a>");
+                            
                             out.println("</td>");
                             
                             out.println("</tr>");
